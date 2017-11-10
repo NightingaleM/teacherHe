@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "mavon-editor": "^2.3.0",
+    "postcss-minify-params": "^1.2.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
