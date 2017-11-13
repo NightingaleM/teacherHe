@@ -7,11 +7,18 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
+    "sstart": "node ./backstage/bin/www",
     "build": "node build/build.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express-session": "^1.15.6",
     "mavon-editor": "^2.3.0",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
     "postcss-minify-params": "^1.2.2",
+    "serve-favicon": "^2.4.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
