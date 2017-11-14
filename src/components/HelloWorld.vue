@@ -18,43 +18,43 @@ export default {
     return {
       solarSystem:[
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/bigSun.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/bigSun.png',
           linkHref:'./classMoment.html'
         },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/水星.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/水星.png',
            linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/金星.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/金星.png',
           linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/地球.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/地球.png',
           linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/火星.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/火星.png',
           linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/木星.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/木星.png',
           linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/土星2.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/土星2.png',
          linkHref:'./classMoment.html'
          },
         {
-          starSrc:'http://via.placeholder.com/305x280/c1c1c1',
-          // starSrc:'./assets/天王星.png',
+          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
+          starSrc:'./static/assets/天王星.png',
           linkHref:'./classMoment.html'
          }
       ],

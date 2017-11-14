@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div id="wellcom-box">
+    <div id="wellcom-box">
     <div id="wellcom">
       <h1>数学的冒险乐园</h1>
       <h1>思维的秘密宇宙</h1>
@@ -9,86 +9,69 @@
   </div>
 
   <div id="content">
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>数学趣题</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/bigSun.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>数学趣题</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/bigSun.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>烧脑故事</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/水星.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>烧脑故事</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/水星.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>课堂游戏</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/金星.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>课堂游戏</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/金星.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>冲考题库</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/地球.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>冲考题库</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/地球.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>精灵风采</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/火星.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>精灵风采</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/火星.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>课堂瞬间</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/木星.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>课堂瞬间</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/木星.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>教师随笔</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/土星.png" alt="" class="star">
-      </a>
-    </section>
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>教师随笔</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/土星.png" alt="" class="star">
+    </a>
 
-    <section class="ct">
-      <a href="">
-        <div class="content-box">
-          <h2>教师简介</h2>
-        </div>
-        <div class="line"></div>
-        <img src="./assets/天王星.png" alt="" class="star">
-      </a>
-    </section>
-
+    <a href="" class="ct">
+      <div class="content-box">
+        <h2>教师简介</h2>
+      </div>
+      <div class="line"></div>
+      <img src="./assets/天王星.png" alt="" class="star">
+    </a>
   </div>
   </div>
 </template>
@@ -105,7 +88,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-* {
+body header h1 h2 h3 h4 h5 h6 p a ul li ol img div section {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -177,7 +160,8 @@ html {
   width: @view-width;
   height: 100vh;
   .ct {
-    padding-bottom: 　10px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,6 +195,9 @@ html {
       .line {
         border: 1px solid rgba(180, 180, 180, 0.712);
       }
+    }
+    &:nth-child(1){
+      padding-bottom: 5px;
     }
   }
 }

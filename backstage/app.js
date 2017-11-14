@@ -8,7 +8,8 @@ var passport = require('passport');
 var session = require('express-session');
 // var ejs = require('ejs')
 
-var main = require('./routes/index');
+var api = require('./routes/api');
+// var devE = require('./routes/devE')
 
 
 // var auth = require('./routes/oauth');
@@ -18,7 +19,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.engine('.html',ejs.__express);
+// // app.engine('.html',ejs.__express);
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -27,13 +28,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(session({secret: 'snoopy170905'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use('/',main);
+app.use('/api',api);
+// app.use('/devE',main);
 
 
 // app.use('/oauth', auth);
