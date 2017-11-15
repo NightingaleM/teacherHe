@@ -18,42 +18,34 @@ export default {
     return {
       solarSystem:[
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/bigSun.png',
           linkHref:'./classMoment.html'
         },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/水星.png',
            linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/金星.png',
           linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/地球.png',
           linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/火星.png',
           linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/木星.png',
           linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/土星2.png',
          linkHref:'./classMoment.html'
          },
         {
-          // starSrc:'http://via.placeholder.com/305x280/c1c1c1',
           starSrc:'./static/assets/天王星.png',
           linkHref:'./classMoment.html'
          }
@@ -71,7 +63,6 @@ export default {
   }
 };
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 *{
@@ -105,7 +96,6 @@ export default {
         height: 50px;
       }
     }
-
   }
 }
 

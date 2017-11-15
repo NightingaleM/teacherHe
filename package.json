@@ -18,6 +18,7 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "postcss-minify-params": "^1.2.2",
+    "sequelize": "^4.22.6",
     "serve-favicon": "^2.4.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
@@ -51,6 +52,7 @@
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "sqlite3": "^3.1.9",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
