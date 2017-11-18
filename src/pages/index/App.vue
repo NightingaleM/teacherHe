@@ -2,7 +2,9 @@
   <div>
     <div id="wellcom-box">
     <div id="wellcom">
-      <h1>数学的冒险乐园</h1>
+      <a href="./devE.html">
+        <h1>数学的冒险乐园</h1>
+      </a>
       <h1>思维的秘密宇宙</h1>
       <h1 class="iconfont bigpage-btn" v-on:click="showCt">&#xe600;</h1>
     </div>
@@ -65,7 +67,7 @@
       <img src="./assets/土星.png" alt="" class="star">
     </a>
 
-    <a href="" class="ct">
+    <a href="./teacher.html" class="ct">
       <div class="content-box">
         <h2>教师简介</h2>
       </div>
@@ -127,13 +129,18 @@ html {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    a {
+      padding-right: 30%;
+      h1{
+        font-size: 3em;
+        color: rgb(255, 255, 255);
+        margin-top: 60px;
+      }
+    }
     h1 {
       font-size: 3em;
       color: rgb(255, 255, 255);
       margin-top: 60px;
-      &:nth-child(1) {
-        padding-right: 35%;
-      }
       &:nth-child(2) {
         padding-right: 0;
       }

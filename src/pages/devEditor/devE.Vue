@@ -1,7 +1,7 @@
     <template>
         <div>
             <div id="editor">
-                <mavon-editor style="height: 100%" v-on:change = 'showHtml'></mavon-editor>
+                <mavon-editor style="height: 100%" v-on:change = 'showHtml' my-message='propsMsg'></mavon-editor>
             </div>
 
             
@@ -19,8 +19,23 @@
         },
         methods: {
             showHtml: function(cVal,oVal){
-                console.log(cVal)
                 console.log(oVal)
+            }
+        },
+        props: {
+            toolbars:{
+                header: false,
+                superscript: false,
+                subscript: false
+            }
+        },
+        data(){
+            return {
+                propsMsg:{
+                    header: false,
+                    superscript: false,
+                    subscript: false
+                }
             }
         }
     }

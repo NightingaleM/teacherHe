@@ -2,10 +2,7 @@
   <ul id="NavBar" @mouseover="showRocket">
     <li v-for="star in solarSystem">
       <a :href="star.linkHref">
-        <img v-bind:src="star.starSrc" alt="">
-        <p class="iconfont">
-          {{iconfont.rocket}}
-        </p>
+        {{star.text}}
       </a>
     </li>
   </ul>
@@ -18,36 +15,36 @@ export default {
     return {
       solarSystem:[
         {
-          starSrc:'./static/assets/bigSun.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'数学趣题'
         },
         {
-          starSrc:'./static/assets/水星.png',
-           linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'烧脑故事'
          },
         {
-          starSrc:'./static/assets/金星.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'课堂游戏'
          },
         {
-          starSrc:'./static/assets/地球.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'冲考题库'
          },
         {
-          starSrc:'./static/assets/火星.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'精灵风采'
          },
         {
-          starSrc:'./static/assets/木星.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'课堂瞬间'
          },
         {
-          starSrc:'./static/assets/土星2.png',
-         linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'教师随笔'
          },
         {
-          starSrc:'./static/assets/天王星.png',
-          linkHref:'./classMoment.html'
+          linkHref:'./classMoment.html',
+          text:'教师简介'
          }
       ],
       iconfont:{
@@ -76,25 +73,26 @@ export default {
   top: 20px;
   right: 30px;
   width: 200px;
-  height: 80%;
-  background-color: #000;
+  height: 500px;
+  background-color: rgba(88, 88, 88, 0.31);
   box-shadow: 1px 1px 2px 2px #ccc;
   color: #fff;
-  padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   flex-direction: column;
   li{
+    text-align: center;
     width: 100%;
-    margin: 10px 0;
+    padding: 10px 0;
+    display: flex;
+    flex-grow: 1;
+    opacity: 0.6;
+    line-height: 40px;
     a{
-      display: flex;
-      justify-content: space-between;
-      img{
-        width: 50px;
-        height: 50px;
-      }
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      text-decoration: none;
     }
   }
 }
