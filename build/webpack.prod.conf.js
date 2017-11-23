@@ -95,7 +95,20 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ].concat(utils.htmlPlugin())
+  ].concat(utils.htmlPlugin()),
+  // resolve: {
+  //   extensions: ['.js', '.vue', '.less', '.css'],
+  //   modules: [
+  //       config.common.include,
+  //       path.join(__dirname, '../node_modules')
+  //   ],
+  //   alias: {
+  //       'vue$': 'vue/dist/vue.esm.js', // 'vue/dist/vue.common.js' for webpack 1
+  //       'src': path.resolve(__dirname, '../src'),
+  //       'assets': path.resolve(__dirname, '../src/assets'),
+  //       'components': path.resolve(__dirname, '../src/components')
+  //   }
+  // }
 })
 
 if (config.build.productionGzip) {
