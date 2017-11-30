@@ -65,5 +65,13 @@ TeacherEssay.sync().then(function () {
 //   console.log(essay)
 // })
 // 第二步结束，定义模型，并且创建第一个数据，创建后进行打印，查看是否创建成功
-
+/*
+查找单个属性
+TeacherEssay.findAll({
+  attributes:['EssayTitle','id'],
+  raw:true
+}).then(function(e){
+  console.log(e)
+})
+*/
 module.exports.TeacherEssay = TeacherEssay

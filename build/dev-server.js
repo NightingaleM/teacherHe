@@ -96,7 +96,15 @@ devMiddleware.waitUntilValid(() => {
     _resolve()
   })
 })
+// 路由，引入
+var essay = require(`./router/essay`)
 
+// 路由，使用
+app.use('/essay',essay)
+
+
+
+// 路由，结束
 module.exports = {
   ready: readyPromise,
   close: () => {

@@ -9,7 +9,7 @@
 					<input class="input title" type="text" placeholder="请输入标题" v-model="savedata.EssayTitle">
 					<input class="input autor" type="text" placeholder="请输入作者" v-model="savedata.ssayAutor">
 					<input class="input preview" type="text" placeholder="请输入简介" v-model="savedata.EssayPreview">
-					<div class="input" v-on:click="saveAndSend">保存并发表</div>
+					<div class="inputB" v-on:click="saveAndSend">发表</div>
 				</div>
 				<div id="editor">
 					<mavon-editor style="height: 100%" v-on:change = "showHtml"></mavon-editor>
@@ -90,7 +90,16 @@ export default {
 			}
 		},
 		sendFunction: function(){
-			console.log(this.savedata.EssayTitle)
+			axios.post('/essay/setNewEssay',{
+				title:this.savedata.EssayTitle,
+				autor:this.savedata.EssayAutor,
+				preview:this.savedata.EssayPreview,
+				content:this.savedata.EssayContent,
+			}).then(function(res){
+				console.log(res)
+			}).catch(function(error){
+				console.log(error)
+			})
 		},
 		changeList:function(e){
 			for (let i = 0; i < this.listCt.length; i++) {
@@ -158,16 +167,27 @@ h1,h2,h3,ul,li,div,input {
 				padding: 8px;
 				color: rgb(200,200,200);
 				border: none;
+				border-bottom: 1px solid rgb(200,200,200);
+				border-right: 1px solid rgb(200,200,200);
 				&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 					color: rgb(180,180,180);
 				}
 			}
+			.inputB {
+				flex-grow: 1;
+				text-align: center;
+				border-right: none;
+				font-size: 20px;
+				line-height: 40px;
+			}
 			.title {
-				width: 60%;
-				border-bottom: 1px solid rgb(200,200,200);
+				flex-grow: 4;
+			}
+			.autor {
+				flex-grow: 1;
 			}
 			.preview {
-				width: 60%;
+				flex-grow: 2;
 			}
 		}
 		#editor {

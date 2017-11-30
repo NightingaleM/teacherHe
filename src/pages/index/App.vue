@@ -2,7 +2,7 @@
   <div>
     <div id="wellcom-box">
     <div id="wellcom">
-      <a href="./devE.html">
+      <a href="./essay.html">
         <h1>数学的冒险乐园</h1>
       </a>
       <h1>思维的秘密宇宙</h1>
