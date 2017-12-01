@@ -12,6 +12,7 @@ const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
+const bodyParser = require('body-parser');
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port
@@ -96,6 +97,8 @@ devMiddleware.waitUntilValid(() => {
     _resolve()
   })
 })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // 路由，引入
 var essay = require(`./router/essay`)
 

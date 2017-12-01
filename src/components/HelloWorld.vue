@@ -72,10 +72,10 @@ export default {
   position: absolute;
   top: 20px;
   right: 30px;
-  width: 200px;
+  width: 150px;
   height: 500px;
   background-color: rgba(88, 88, 88, 0.31);
-  box-shadow: 1px 1px 2px 2px #ccc;
+  box-shadow: 2px 2px 5px 2px #ccc;
   color: #fff;
   display: flex;
   justify-content: space-between;

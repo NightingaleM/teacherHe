@@ -7,7 +7,7 @@
 			<div id="markdown" v-if="!ctOrImg">
 				<div id="input">
 					<input class="input title" type="text" placeholder="请输入标题" v-model="savedata.EssayTitle">
-					<input class="input autor" type="text" placeholder="请输入作者" v-model="savedata.ssayAutor">
+					<input class="input autor" type="text" placeholder="请输入作者" v-model="savedata.EssayAutor">
 					<input class="input preview" type="text" placeholder="请输入简介" v-model="savedata.EssayPreview">
 					<div class="inputB" v-on:click="saveAndSend">发表</div>
 				</div>
@@ -90,16 +90,28 @@ export default {
 			}
 		},
 		sendFunction: function(){
-			axios.post('/essay/setNewEssay',{
-				title:this.savedata.EssayTitle,
-				autor:this.savedata.EssayAutor,
-				preview:this.savedata.EssayPreview,
-				content:this.savedata.EssayContent,
+			axios({
+				method:'post',
+				url:'/essay/setNewEssay',
+				data:{
+				'title':this.savedata.EssayTitle,
+				'autor':this.savedata.EssayAutor,
+				'preview':this.savedata.EssayPreview,
+				'content':this.savedata.EssayContent,
+				}
 			}).then(function(res){
 				console.log(res)
 			}).catch(function(error){
 				console.log(error)
 			})
+			// var xhr = new XMLHttpRequest()
+			// xhr.open('post','/essay/setNewEssay',true)
+			// xhr.send({
+			// 		'title':this.savedata.EssayTitle,
+			// 		'autor':this.savedata.EssayAutor,
+			// 		'preview':this.savedata.EssayPreview,
+			// 		'content':this.savedata.EssayContent,
+			// })
 		},
 		changeList:function(e){
 			for (let i = 0; i < this.listCt.length; i++) {
@@ -130,14 +142,16 @@ h1,h2,h3,ul,li,div,input {
 	display: flex;
 	justify-content: space-between;
 	#list {
+		transition: font-size 800ms,width 1s;
 		height: 100%;
-		width: 300px;
-		font-size: 1.5em;
+		width: 150px;
+		font-size: 1.2em;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		background-color: rgb(210,210,210);
+		margin-right: 20px;
 		.listActive {
 			background-color: rgb(170,170,170);
 			&:hover {
@@ -154,6 +168,7 @@ h1,h2,h3,ul,li,div,input {
 	}
 	#markdown {
 		display: flex;
+		flex-grow: 1;
 		flex-direction: column;
 		margin-right: 30px;
 		#input {

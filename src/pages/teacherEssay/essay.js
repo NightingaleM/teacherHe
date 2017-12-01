@@ -3,6 +3,7 @@ import essay from './essay.vue'
 import HelloWorld from '@/components/HelloWorld'
 
 // var editor = require('./editor.vue');
+import './essay.less'
 
 new Vue({
     el: '#essay',
