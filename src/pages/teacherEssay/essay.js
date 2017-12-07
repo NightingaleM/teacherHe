@@ -1,21 +1,16 @@
 import Vue from 'vue';
+import router from './router/essay.js'
 import essay from './essay.vue'
 import HelloWorld from '@/components/HelloWorld'
 
-// var editor = require('./editor.vue');
 import './essay.less'
 
 new Vue({
     el: '#essay',
-    render: h => h(essay)
+    render: h => h(essay),
+    router,
 });
 new Vue({
   el: '#NavBar',
   render: h => h(HelloWorld)
 });
-// import Vue from 'vue';
-// var editor = require('./editor.vue');
-// new Vue({
-//     el: '#main',
-//     render: h => h(editor)
-// });

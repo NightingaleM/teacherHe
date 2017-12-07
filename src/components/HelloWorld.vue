@@ -39,11 +39,11 @@ export default {
           text:'课堂瞬间'
          },
         {
-          linkHref:'./classMoment.html',
+          linkHref:'./essay.html#/essays',
           text:'教师随笔'
          },
         {
-          linkHref:'./classMoment.html',
+          linkHref:'./teacher.html',
           text:'教师简介'
          }
       ],
@@ -69,12 +69,12 @@ export default {
   box-sizing: border-box;
 }
 #NavBar {
-  position: absolute;
+  position: fixed;
   top: 20px;
-  right: 30px;
+  left: 25px;
   width: 150px;
   height: 500px;
-  background-color: rgba(88, 88, 88, 0.31);
+  background-color: rgba(88, 88, 88, 0.4);
   box-shadow: 2px 2px 5px 2px #ccc;
   color: #fff;
   display: flex;

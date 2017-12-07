@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 // var TeacherEssay = require('@b/model/database/teacherEssay').TeacherEssay
 var TeacherEssay = require('../../backstage/model/teacherEssay').TeacherEssay
-
+console.log('essay')
 router.post('/getTitle', function (req, res, next) {
   TeacherEssay.findAll({
     attributes:[
@@ -29,7 +29,6 @@ router.post('/getContent', function (req, res, next) {
 });
 
 router.post('/setNewEssay',function(req,res,next){
-  console.log(req.body)
   var title = req.body.title
   var autor = req.body.autor
   var preview = req.body.preview

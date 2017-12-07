@@ -101,10 +101,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // 路由，引入
 var essay = require(`./router/essay`)
-
+var essayPage = require('./router/essayPage')
 // 路由，使用
 app.use('/essay',essay)
-
+app.use('/essaypage',essayPage)
 
 
 // 路由，结束

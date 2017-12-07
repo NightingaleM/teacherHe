@@ -2,7 +2,7 @@
   <div>
     <div id="wellcom-box">
     <div id="wellcom">
-      <a href="./essay.html">
+      <a href="./devE.html">
         <h1>数学的冒险乐园</h1>
       </a>
       <h1>思维的秘密宇宙</h1>
@@ -59,7 +59,7 @@
       <img src="./assets/木星.png" alt="" class="star">
     </a>
 
-    <a href="" class="ct">
+    <a href="./essay.html#/essays" class="ct">
       <div class="content-box">
         <h2>教师随笔</h2>
       </div>
