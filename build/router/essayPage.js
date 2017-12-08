@@ -14,19 +14,4 @@ router.post('/getCt', function (req, res, next) {
   })
 
 });
-
-// router.post('/getCt', function (req, res, next) {
-//   var a = Request.QueryString(essayId)
-//   console.log(a)
-//   TeacherEssay.findAll({
-//     where:{
-//       id:1
-//     },
-//     raw:true}).then(function(e){
-//     res.send(e)
-//   })
-// });
-
-
-
 module.exports = router;

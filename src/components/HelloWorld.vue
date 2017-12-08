@@ -1,11 +1,17 @@
 <template>
+<div>
+  <div id="header">
+    <a href="index.html"><h1>何庶的数学乐园</h1></a>
+    <p>巴拉巴拉巴拉巴拉吧巴拉巴拉巴拉巴拉吧</p>
+  </div>
   <ul id="NavBar" @mouseover="showRocket">
-    <li v-for="star in solarSystem">
+    <li v-for="star in solarSystem" :key="star.index">
       <a :href="star.linkHref">
         {{star.text}}
       </a>
     </li>
   </ul>
+</div>
 </template>
 
 <script>
@@ -68,9 +74,28 @@ export default {
   list-style: none;
   box-sizing: border-box;
 }
+#header {
+  color: #fff;
+  width: 90vw;
+  min-width: 800px;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 20px;
+  a {
+    color: #fff;
+    text-decoration: none;    
+    h1{
+      padding-bottom: 5px;
+    }
+  }
+  p{
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+}
 #NavBar {
   position: fixed;
-  top: 20px;
+  top: 118px;
   left: 25px;
   width: 150px;
   height: 500px;
