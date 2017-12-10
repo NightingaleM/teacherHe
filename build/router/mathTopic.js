@@ -27,25 +27,6 @@ router.post('/getContent', function (req, res, next) {
   })
 });
 
-router.post('/setNew',function(req,res,next){
-  var title = req.body.title
-  var preview = req.body.preview
-  var content = req.body.content
-  var autor = null
-  
-  mathTopic.create({
-    EssayTitle:title,
-    EssayPreview:preview,
-    EssayContent:content,
-    EssayAutor:autor,
-  }).then(function () {
-    res.send('成功了')
-    return 
-  }).catch(function () {
-    res.send('失败了')
-    return 
-    
-  })
-});
+
 
 module.exports = router;

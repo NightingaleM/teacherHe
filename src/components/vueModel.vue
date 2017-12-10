@@ -3,10 +3,10 @@
     <div id="model-box">
       <h2>{{modelHeader}}</h2>      
       <div class="model-content" v-show="!isSend">{{modelContent}}</div>
-      <div class="model-content" v-show="isSend">{{sendSuc}}</div>      
+      <div class="model-content" v-show="isSend">{{finishedContent}}</div>      
       <div id="model-button">
-        <button @click="doNotSave" v-show="!isSend">No!</button>
-        <button @click="saveAndSend" v-show="!isSend">Yes!</button>        
+        <button @click="donot" v-show="!isSend">No!</button>
+        <button @click="doIt" v-show="!isSend">Yes!</button>        
         <button @click="sendSuccess" v-show="isSend">确定</button>
       </div>
     </div>
@@ -19,6 +19,7 @@ export default {
     modelHeader:String,
     modelContent:String,
     yesFunction:Function,
+    finishedContent:String,
     show:{
       type:Boolean,
       default:false,
@@ -26,20 +27,19 @@ export default {
   },
   data(){
     return {
-      yesFun: this.yesFunction,
       isSend: false,
-      sendSuc: '保存并提交成功'
     }
   },
   methods: {
-    saveAndSend: function(){
-      this.yesFun()
+    doIt: function(){
+      this.yesFunction()
       this.isSend = true
     },
     sendSuccess:function(){
       this.notShow()
+      this.isSend = false
     },
-    doNotSave: function(){
+    donot: function(){
       this.notShow()
     },
     notShow: function(){

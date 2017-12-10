@@ -14,3 +14,4 @@ new Vue({
   el: '#NavBar',
   render: h => h(HelloWorld)
 });
+console.log('123123213')

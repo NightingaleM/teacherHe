@@ -100,21 +100,19 @@ devMiddleware.waitUntilValid(() => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // 路由，引入
-var essayPage = require('./router/essayPage')
-
 var teacherEssay = require(`./router/essay`)
 var mathTopic = require('./router/mathTopic')
-// var mathStory = require('./router/mathStory')
+var mathStory = require('./router/mathStory')
+var set = require('./router/devE')
 // var mathGame = require('./router/mathGame')
 // var studentPic = require('./router/studentPic')
 // var teacherPic = require('./router/teacherPic')
 
 // 路由，使用
-app.use('/essaypage',essayPage)
-
 app.use('/essay',teacherEssay)
 app.use('/topic',mathTopic)
-// app.use('/story',mathStory)
+app.use('/story',mathStory)
+app.use('/set',set)
 // app.use('/game',mathGame)
 // app.use('/stPic',studentPic)
 // app.use('/tcPic',teacherPic)

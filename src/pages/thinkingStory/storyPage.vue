@@ -1,39 +1,28 @@
 <template>
 <div id="essay">
   <div id="essayHead">
-    <h1 id="essayTitle">{{essays.EssayTitle}}</h1>
-    作者：{{essays.EssayAutor}}
+    <h1 id="essayTitle">{{story.EssayTitle}}</h1>
   </div>
-  <div class="markdown-body" id="mdbody" v-html="essays.EssayContent"></div>
+  <div class="markdown-body" id="mdbody" v-html="story.EssayContent"></div>
 </div>
 </template>
 <script>
-var mavonEditor = require('mavon-editor')
 var axios = require('axios')
 import './md.css'
 export default {
-  name:"essayPage",
+  name:"storyPage",
   data: function(){
     return {
-      essays:{},
+      story:{},
       ids: ''
     }
   },
   methods:{
     getEssay: function(){
       var _this = this
-      var url = `/essay/getCt?id=${this.ids}`
+      var url = `/story/getCt?id=${this.ids}`
       axios.post(url).then(function(res){
-        _this.essays = res.data[0]
-/*
-EssayAutor:"测试作者"
-EssayContent:"<h1>测试正文</h1>↵<p>测试<br />↵<ins>测试</ins><br />↵<s>测试</s><br />↵<mark>测试</mark></p>↵"
-EssayPreview:"测试简介"
-EssayTitle:"测试标题"
-createdAt:"2017-12-01 02:29:52.100 +00:00"
-id:2
-updatedAt:"2017-12-01 02:29:52.100 +00:00"
-*/
+        _this.story = res.data[0]
       })
     }
   },

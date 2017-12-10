@@ -1,23 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var TeacherEssay = require('../../backstage/model/teacherEssay').TeacherEssay
-
+var mathStory = require('../../backstage/model/mathStory').mathStory
 router.post('/getTitle', function (req, res, next) {
-  TeacherEssay.findAll({
+  mathStory.findAll({
     attributes:[
       'id',
       'EssayTitle',
       'EssayPreview',
-      'EssayAutor',
       'createdAt'
     ],
     raw:true
   }).then(function(e){
     res.send(e)
   })
+
 });
+
 router.post('/getContent', function (req, res, next) {
-  TeacherEssay.findAll({
+  mathStory.findAll({
     attributes:['EssayContent'],
     raw:true
   }).then(function(e){
@@ -25,9 +25,10 @@ router.post('/getContent', function (req, res, next) {
   })
 });
 
+
 router.post('/getCt', function (req, res, next) {
   let essayId = req.query.id
-  TeacherEssay.findAll({
+  mathStory.findAll({
     where:{
       id:essayId
     },

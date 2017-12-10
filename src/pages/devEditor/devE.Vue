@@ -6,7 +6,7 @@
 			</ul>
 			<ul id="essayList">
 				<li v-for="(list,index) in essayList" :key="index" v-bind:title="list.EssayTitle">
-					<span v-on:click="" title="删除">x</span>
+					<span v-on:click="delate(list.id,list.EssayTitle)" title="删除">x</span>
 					{{list.EssayTitle}}
 				</li>
 			</ul>
@@ -56,7 +56,8 @@ export default {
 			modeldata:{
 				modelHeader:'',
     		modelContent:``,
-    		yesFunction:null,
+				yesFunction: Function,
+   			finishedContent:'',
    			show: false
 			},
 			essayList:[],
@@ -64,11 +65,29 @@ export default {
 				urlName:'essay',
 				name:'教师随笔',
 				urlGet:`/essay/getTitle`,
-				urlSet:`/essay/setNew`
+				urlSet:`set/setNew/essay`,
+				urlDelate:'set/delate/essay'
 			}
 		}
 	},
 	methods:{
+		delate: function(id,name){
+			let tagId = id
+			let tagUrl = `/${this.nowTage.urlName}/delate`
+			let _this = this
+			// let tageFn = function(tagUrl,tagId){
+			let tageFn = function(){
+				axios.post(tagUrl,{id: tagId}).then(function(res){
+					_this.modeldata.finishedContent = '已删除《' + name + '》'
+				}).catch(function(error){
+					_this.modeldata.finishedContent = '出错：删除失败'
+				})
+			}
+			this.modeldata.show = true
+			this.modeldata.modelHeader = '永久删除文章'
+			this.modeldata.modelContent = '是否将《' + name + '》永久删除?'
+			this.modeldata.yesFunction = tageFn
+		},
 		getEssays: function(){
 			var _this = this
       axios.post(_this.nowTage.urlGet).then(function(res){
@@ -84,15 +103,14 @@ export default {
 			for (let i = 0; i < this.listCt.length; i++) {
 				if(this.listCt[i].listState){
 					var tage = this.listCt[i].urlName
-					this.modeldata.yesFunction = this.sendFunction(tage)
+					this.modeldata.yesFunction = this.sendFunction
 					this.modeldata.modelHeader = '保存并发表文章'
 					this.modeldata.modelContent = '是否将该文章保存并发送到'+this.listCt[i].listName + '?'
 				}
 			}
 		},
-		sendFunction: function(tage){
+		sendFunction: function(){
 			var _this = this
-			if(!tage) return false
 			axios({
 				method:'post',
 				url: _this.nowTage.urlSet,
@@ -103,9 +121,10 @@ export default {
 				'content':this.savedata.EssayContent,
 				}
 			}).then(function(res){
-				console.log(res)
+				_this.modeldata.finishedContent = '已发表《' + name + '》'
+
 			}).catch(function(error){
-				console.log(error)
+				_this.modeldata.finishedContent = '出错：发表失败'
 			})
 		},
 		changeList:function(e){
@@ -116,7 +135,8 @@ export default {
 			this.nowTage.urlName = this.listCt[e].urlName
 			this.nowTage.name = this.listCt[e].listName
 			this.nowTage.urlGet = `/${this.listCt[e].urlName}/getTitle`
-			this.nowTage.urlSet = `/${this.listCt[e].urlName}/setNew`
+			this.nowTage.urlSet = `set/setNew/${this.listCt[e].urlName}`
+			this.nowTage.urlDelate = `set/delate/${this.listCt[e].urlName}`			
 			this.getEssays()
 		},
 		notShow:function(a){
