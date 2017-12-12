@@ -21,11 +21,11 @@ export default {
     return {
       solarSystem:[
         {
-          linkHref:'./classMoment.html',
+          linkHref:'/topic.html#/topics',
           text:'数学趣题'
         },
         {
-          linkHref:'./classMoment.html',
+          linkHref:'/story.html#/storys',
           text:'烧脑故事'
          },
         {

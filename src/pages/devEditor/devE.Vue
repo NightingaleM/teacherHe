@@ -6,16 +6,16 @@
 			</ul>
 			<ul id="essayList">
 				<li v-for="(list,index) in essayList" :key="index" v-bind:title="list.EssayTitle">
-					<span v-on:click="delate(list.id,list.EssayTitle)" title="删除">x</span>
+					<span v-on:click="_delete(list.id,list.EssayTitle)" title="删除">x</span>
 					{{list.EssayTitle}}
 				</li>
 			</ul>
 			<div id="markdown">
 				<div id="input">
 					<input class="input title" type="text" placeholder="请输入标题" v-model="savedata.EssayTitle">
-					<input class="input autor" type="text" placeholder="请输入作者" v-model="savedata.EssayAutor">
+					<input class="input autor" type="text" placeholder="请输入作者" v-model="savedata.EssayAutor" v-show="hasAutor">
 					<input class="input preview" type="text" placeholder="请输入简介" v-model="savedata.EssayPreview">
-					<div class="inputB" v-on:click="saveAndSend">发表</div>
+					<div class="inputB" v-on:click="saveAndSend(savedata.EssayTitle)">发表</div>
 				</div>
 				<div id="editor">
 					<mavon-editor style="height: 100%" v-on:change = "showHtml"></mavon-editor>
@@ -39,13 +39,14 @@ export default {
 	data(){
 		return {
 			listCt:[
-				{listName:"教师随笔",listState:true,urlName:"essay"},
-				{listName:"数学趣题",listState:false,urlName:"topic"},
-				{listName:"烧脑故事",listState:false,urlName:"story"},
-				{listName:"课堂游戏",listState:false,urlName:"game"},
-				{listName:"精灵风采",listState:false,urlName:"stPic"},
-				{listName:"课堂瞬间",listState:false,urlName:"clPic"}
+				{listName:"教师随笔",listState:true,urlName:"essay",hasAutor:true},
+				{listName:"数学趣题",listState:false,urlName:"topic",hasAutor:false},
+				{listName:"烧脑故事",listState:false,urlName:"story",hasAutor:false},
+				{listName:"课堂游戏",listState:false,urlName:"game",hasAutor:false},
+				{listName:"精灵风采",listState:false,urlName:"stPic",hasAutor:false},
+				{listName:"课堂瞬间",listState:false,urlName:"clPic",hasAutor:false}
 			],
+			hasAutor:true,
 			// 需要提交的内容
 			savedata: {
 				EssayTitle:``,
@@ -66,19 +67,20 @@ export default {
 				name:'教师随笔',
 				urlGet:`/essay/getTitle`,
 				urlSet:`set/setNew/essay`,
-				urlDelate:'set/delate/essay'
+				urlDelate:'set/delete/essay'
 			}
 		}
 	},
 	methods:{
-		delate: function(id,name){
+		_delete: function(id,name){
 			let tagId = id
-			let tagUrl = `/${this.nowTage.urlName}/delate`
+			let tagUrl = this.nowTage.urlDelate
 			let _this = this
 			// let tageFn = function(tagUrl,tagId){
 			let tageFn = function(){
 				axios.post(tagUrl,{id: tagId}).then(function(res){
 					_this.modeldata.finishedContent = '已删除《' + name + '》'
+					_this.getEssays()
 				}).catch(function(error){
 					_this.modeldata.finishedContent = '出错：删除失败'
 				})
@@ -98,34 +100,35 @@ export default {
 		showHtml: function(cVal,originValue){
 			this.savedata.EssayContent = originValue
 		},
-		saveAndSend: function(){
+		saveAndSend: function(name){
+			let _this = this
+			let sendFunction = function(){
+				axios({
+					method:'post',
+					url: _this.nowTage.urlSet,
+					data:{
+					'title':_this.savedata.EssayTitle,
+					'autor':_this.savedata.EssayAutor,
+					'preview':_this.savedata.EssayPreview,
+					'content':_this.savedata.EssayContent,
+					}
+				}).then(function(res){
+					_this.modeldata.finishedContent = '已发表《' + name + '》'
+					_this.getEssays()
+				}).catch(function(error){
+					_this.modeldata.finishedContent = '出错：发表失败'
+				})
+			}
 			this.modeldata.show = true
 			for (let i = 0; i < this.listCt.length; i++) {
 				if(this.listCt[i].listState){
-					var tage = this.listCt[i].urlName
-					this.modeldata.yesFunction = this.sendFunction
+					let tage = this.listCt[i].urlName
+					this.modeldata.yesFunction = sendFunction
 					this.modeldata.modelHeader = '保存并发表文章'
 					this.modeldata.modelContent = '是否将该文章保存并发送到'+this.listCt[i].listName + '?'
 				}
 			}
-		},
-		sendFunction: function(){
-			var _this = this
-			axios({
-				method:'post',
-				url: _this.nowTage.urlSet,
-				data:{
-				'title':this.savedata.EssayTitle,
-				'autor':this.savedata.EssayAutor,
-				'preview':this.savedata.EssayPreview,
-				'content':this.savedata.EssayContent,
-				}
-			}).then(function(res){
-				_this.modeldata.finishedContent = '已发表《' + name + '》'
 
-			}).catch(function(error){
-				_this.modeldata.finishedContent = '出错：发表失败'
-			})
 		},
 		changeList:function(e){
 			for (let i = 0; i < this.listCt.length; i++) {
@@ -136,7 +139,8 @@ export default {
 			this.nowTage.name = this.listCt[e].listName
 			this.nowTage.urlGet = `/${this.listCt[e].urlName}/getTitle`
 			this.nowTage.urlSet = `set/setNew/${this.listCt[e].urlName}`
-			this.nowTage.urlDelate = `set/delate/${this.listCt[e].urlName}`			
+			this.nowTage.urlDelate = `set/delete/${this.listCt[e].urlName}`
+			this.hasAutor = this.listCt[e].hasAutor	
 			this.getEssays()
 		},
 		notShow:function(a){

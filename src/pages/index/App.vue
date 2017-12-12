@@ -11,7 +11,7 @@
   </div>
 
   <div id="content">
-    <a href="" class="ct">
+    <a href="/topic.html#/topics" class="ct">
       <div class="content-box">
         <h2>数学趣题</h2>
       </div>
@@ -19,7 +19,7 @@
       <img src="./assets/bigSun.png" alt="" class="star">
     </a>
 
-    <a href="" class="ct">
+    <a href="/story.html#/storys" class="ct">
       <div class="content-box">
         <h2>烧脑故事</h2>
       </div>
